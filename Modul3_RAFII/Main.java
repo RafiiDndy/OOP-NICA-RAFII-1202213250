@@ -4,7 +4,6 @@ import java.util.Scanner;
 import java.util.InputMismatchException;
 
 public class Main {
-    public static boolean repeat = true;
     public static void main(String[] args) {
         Calculation h = new Calculation();
         Thread thread = new Thread(h);
