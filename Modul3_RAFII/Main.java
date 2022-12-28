@@ -6,17 +6,29 @@ import java.util.InputMismatchException;
 public class Main {
     public static boolean repeat = true;
     public static void main(String[] args) {
-        Scanner Count = new Scanner(System.in);
-        do {  System.out.println("Program Menu");
-                System.out.println("1. Square\n2. Circle\n3. Trapezoid\n0. Exit");
-                System.out.print("Input: ");
-                int Menu = Count.nextInt();
+        Calculation h = new Calculation();
+        Thread thread = new Thread(h);
+        Scanner sc = new Scanner(System.in);
+        boolean repeat = true;
+        do {  
+            System.out.println("Program Menu");
+            System.out.println("1. Square\n2. Circle\n3. Trapezoid\n0. Exit");
+            System.out.print("Input: ");
+       
             
             try{
-                switch (Menu) {
+                int menu = sc.nextInt();
+                System.out.println();
+                switch (menu) {
                     case 1:
-                        System.out.println("Enter the length of the side of the square: ");
-                        double side = Count.nextDouble();
+                        System.out.print("Enter the length of the side of the square : ");
+                        double side = sc.nextDouble();
+
+                        h.setSquare(side);
+                        thread.start();
+                        thread.join();
+
+                        System.out.println("\nThe calculation result: " + h.getSquare());
                         break;
                     case 2:
                         System.out.println("Enter the radius of the circle: ");
