@@ -40,13 +40,16 @@ public class Main {
                 repeat = false;
 
             } catch (InputMismatchException e) {
-                System.out.println("Input must be a number");
+                System.out.println("\n====Error: Input must be a number====\n");
+                sc.next();
             } catch (IllegalArgumentException e) {
+                System.out.println();
                 System.out.println(e);
+                System.out.println();
             } catch (InterruptedException e) {
                 System.out.println(e);
             }
         } while (repeat);
-        Count.close();
+        sc.close();
     }
 }
