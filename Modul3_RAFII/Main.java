@@ -4,6 +4,7 @@ import java.util.Scanner;
 import java.util.InputMismatchException;
 
 public class Main {
+    public static boolean repeat = true;
     public static void main(String[] args) {
         Calculation h = new Calculation();
         Thread thread = new Thread(h);
@@ -14,7 +15,6 @@ public class Main {
             System.out.println("1. Square\n2. Circle\n3. Trapezoid\n0. Exit");
             System.out.print("Input: ");
        
-            
             try{
                 int menu = sc.nextInt();
                 System.out.println();
@@ -31,14 +31,27 @@ public class Main {
                         break;
                     case 2:
                         System.out.println("Enter the radius of the circle: ");
-                        double radius = Count.nextDouble(); 
+                        double radius = sc.nextDouble(); 
+
+                        h.setCircle(radius);
+                        thread.start();
+                        thread.join();
+
+                        System.out.println("\nThe calculation result: " + h.getCircle());
+                        break;
                     case 3:
                         System.out.println("Enter the side of the base of the trapezoid: ");
-                        double base = Count.nextDouble();
+                        double b = sc.nextDouble();
                         System.out.println("Enter the upper side of the trapezoid: ");
-                        double upper = Count.nextDouble();
+                        double a = sc.nextDouble();
                         System.out.println("Enter the height of the trapezoid: ");
-                        double height = Count.nextDouble();
+                        double t = sc.nextDouble();
+
+                        h.setTrapezoid(a, b, t);
+                        thread.start();
+                        thread.join();
+                        
+                        System.out.println("\nThe calculation result: " + h.getTrapezoid());
                         break;
                     case 0 :
                         System.out.println("End");
