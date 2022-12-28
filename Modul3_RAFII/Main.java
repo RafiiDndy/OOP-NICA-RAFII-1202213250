@@ -7,13 +7,12 @@ public class Main {
     public static boolean repeat = true;
     public static void main(String[] args) {
         Scanner Count = new Scanner(System.in);
-        do {
-            try{
-                System.out.println("Program Menu");
+        do {  System.out.println("Program Menu");
                 System.out.println("1. Square\n2. Circle\n3. Trapezoid\n0. Exit");
                 System.out.print("Input: ");
                 int Menu = Count.nextInt();
-
+            
+            try{
                 switch (Menu) {
                     case 1:
                         System.out.println("Enter the length of the side of the square: ");
